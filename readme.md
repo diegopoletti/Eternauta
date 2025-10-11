@@ -32,9 +32,77 @@ Este proyecto utiliza un microcontrolador ESP32 para reproducir archivos de audi
 
 El siguiente diagrama ilustra la lógica de funcionamiento del software:
 
+## **Diagrama de Flujo del Programa (Lógica)**
+
+A continuación se describe la secuencia lógica del programa:
+
+1. **INICIO**  
+2. **SETUP (Configuración Inicial)**  
+   * Inicializar comunicación Serial.  
+   * Inicializar pines de pulsadores con resistencia pull-up.  
+   * Inicializar tarjeta SD. Si falla, detener ejecución.  
+   * Inicializar objetos de audio (Fuente SD, Decodificador MP3, Salida I2S).  
+3. **LOOP (Bucle Principal)**  
+   * **Gestionar Pulsadores:**  
+     * Leer estado del pulsador PLAY.  
+     * ¿Fue presionado?  
+       * **SÍ:** ¿Hay una reproducción en curso?  
+         * **NO:** Llamar a la función `reproducirFraseAleatoria()`.  
+         * **SÍ:** No hacer nada.  
+     * Leer estado del pulsador RESET.  
+     * ¿Fue presionado?  
+       * **SÍ:** Enviar mensaje a la consola y reiniciar el ESP32.  
+   * **Gestionar Audio:**  
+     * ¿Hay una reproducción en curso?  
+       * **SÍ:** ¿El archivo de audio ha terminado?  
+         * **SÍ:** Detener la reproducción, cerrar el archivo y actualizar el estado a "no en curso".  
+         * **NO:** Continuar enviando datos de audio a la salida I2S.  
+   * Repetir el LOOP.
+
 ## **Diagrama de Conexiones**
 
 Este diagrama muestra las conexiones del circuito, incluyendo los componentes para mejorar la inmunidad al ruido.
+
+## **Diagrama de Conexiones (Descripción Detallada)**
+
+Este es el esquema de conexiones recomendado, incluyendo componentes para mejorar la inmunidad al ruido.
+
+#### **1\. Alimentación Principal**
+
+* **ESP32 3.3V** \-\> Conectar al riel positivo (+) de la protoboard.  
+* **ESP32 GND** \-\> Conectar al riel negativo (-) de la protoboard.  
+* **Capacitor de bulk (10µF a 100µF):** Conectar entre el riel positivo y negativo de la protoboard para estabilizar la alimentación.
+
+#### **2\. Módulo Lector de Tarjeta SD \-\> ESP32**
+
+* **VCC** \-\> Riel de 3.3V (+)  
+* **GND** \-\> Riel de GND (-)  
+* **CS** \-\> GPIO 5  
+* **SCK** \-\> GPIO 18  
+* **MOSI** \-\> GPIO 23  
+* **MISO** \-\> GPIO 19
+
+#### **3\. Salida de Audio I2S (ESP32 \-\> Módulo MAX98357A)**
+
+* **VCC (VIN)** \-\> Riel de 3.3V (+)  
+* **GND** \-\> Riel de GND (-)  
+* **GPIO 22 (DOUT)** \-\> Pin **DIN** del MAX98357A  
+* **GPIO 26 (BCLK)** \-\> Pin **BCLK** del MAX98357A  
+* **GPIO 25 (LRC)** \-\> Pin **LRC** del MAX98357A
+
+#### **4\. Pulsador PLAY (con filtro de ruido RC)**
+
+* Una pata del pulsador \-\> Riel de GND (-).  
+* La otra pata del pulsador \-\> Conectar a **GPIO 4**.  
+* **Resistencia Pull-up (10kΩ):** Conectar entre **GPIO 4** y el riel de 3.3V (+).  
+* **Capacitor de filtro (100nF):** Conectar entre **GPIO 4** y el riel de GND (-).
+
+#### **5\. Pulsador RESET (con filtro de ruido RC)**
+
+* Una pata del pulsador \-\> Riel de GND (-).  
+* La otra pata del pulsador \-\> Conectar a **GPIO 15**.  
+* **Resistencia Pull-up (10kΩ):** Conectar entre **GPIO 15** y el riel de 3.3V (+).  
+* **Capacitor de filtro (100nF):** Conectar entre **GPIO 15** y el riel de GND (-).
 
 ### **Notas sobre el Diseño Robusto**
 
