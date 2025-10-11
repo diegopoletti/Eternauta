@@ -134,3 +134,34 @@ Este es el esquema de conexiones recomendado, incluyendo componentes para mejora
 * Presione el botón "Subir" para compilar y cargar el programa en el microcontrolador.
 
 Una vez cargado, el dispositivo está listo. Puede ver mensajes de estado y depuración abriendo el **Monitor Serie** del Arduino IDE a una velocidad de **115200 baudios**.
+
+### **4\. Frases sugeridas**
+"El héroe verdadero de El Eternauta es un héroe colectivo, un grupo humano… el único héroe válido es el héroe en grupo, nunca el héroe individual.” (Oesterheld, 1957, como se cita en LMNeuquén, 2025)​
+
+“¿Por qué esperarlo todo de afuera? ¿Acaso no podemos socorrernos a nosotros mismos?” (Oesterheld, 1957, como se cita en LMNeuquén, 2025)​
+
+“Lo viejo funciona.” (Oesterheld, 1957, como se cita en SomosOHLALÁ, 2025)​
+
+“Muy pronto esto será como la jungla… todos contra todos.” (Oesterheld, 1957, como se cita en LMNeuquén, 2025)​
+
+“La brújula anda bien, lo que se rompió es el mundo.” (Oesterheld, 1957, como se cita en LMNeuquén, 2025)​
+
+“Todos necesitamos confiar en alguien.” (Oesterheld, 1957, como se cita en LMNeuquén, 2025)​
+
+“No podíamos abandonarnos, dejarnos vencer por la desesperanza.” (Oesterheld, 1957, como se cita en LMNeuquén, 2025)​
+
+“Esto ya lo viví.” (Oesterheld, 1957, como se cita en LMNeuquén, 2025)​
+
+“Nadie se salva solo.” (Oesterheld, 1957, como se cita en LMNeuquén, 2025)​
+
+“Ahora no es tiempo de odiar, es tiempo de luchar.” (Oesterheld, 1957, como se cita en LMNeuquén, 2025)​
+
+“¿Ir a la guerra y abandonar los seres queridos no se ve asaltado en ningún momento por los presentimientos más pesimistas?” (Oesterheld, 1957, como se cita en LMNeuquén, 2025)​
+
+“Todo sobreviviente, ya lo había dicho Favalli, era un enemigo en potencia.” (Oesterheld, 1957, como se cita en LMNeuquén, 2025)​
+
+“Es tanto lo que ha pasado, que me cuesta ser el mismo de siempre. Me parece ser otro, que todo esto lo está viendo otro, no yo…” (Oesterheld, 1957, como se cita en LMNeuquén, 2025)​
+
+“No fue un combate. Ni tiempo les dimos de apuntar, pero no pensábamos lo que habíamos hecho. Total, ellos ya no eran hombres, eran simples cuerpos sin inteligencia, esclavizados a los ‘manos’. Además, no era momento de compasiones…” (Oesterheld, 1957, como se cita en LMNeuquén, 2025)​
+
+“Tienes mucho que aprender, Juan Salvo… Tienes que aprender que en el universo hay muchas especies inteligentes, algunas más, otras menos que la especie humana. Que todas tienen algo en común: el espíritu…” (Oesterheld, 1957, como se cita en LMNeuquén, 2025)
